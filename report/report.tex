@@ -1,0 +1,63 @@
+\input{src/settings.tex}
+
+\newcommand{\temat}{Temat raportu}
+\newcommand{\kurs}{Nazwa kursu}
+\newcommand{\grupa}{Poniedziałek 9:15 TN}
+\newcommand{\prowadzacy}{dr inż. Jan Nowak}
+\newcommand{\autor}{Michał Dudek}
+\newcommand{\indeks}{218383}
+
+\input{src/titlepage.tex}
+
+\begin{document}
+
+\mytitlepage
+
+\tableofcontents
+\vspace{3.5cm}
+
+%\chapter{Wstęp}
+{\let\clearpage\relax \chapter{Wstęp}}
+
+\chapter{Opis}
+%{\let\clearpage\relax \chapter{Opis}}
+
+%\chapter{Przebieg}
+{\let\clearpage\relax \chapter{Przebieg}}
+
+\chapter{Zrzuty ekranu}
+%{\let\clearpage\relax \chapter{Zrzuty ekranu}}
+\image{0.7}{example.png}{Description}
+
+\chapter{Kod źródłowy}
+%{\let\clearpage\relax \chapter{Kod źródłowy}}
+\code{example.txt}
+
+\chapter{Tabele}
+%{\let\clearpage\relax \chapter{Tabele}}
+\csv{example.csv}
+
+\chapter{Wykresy}
+%{\let\clearpage\relax \chapter{Wykresy}}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[xlabel=Cities,ylabel=Time,legend style={at={(0,1)}, anchor=north west}]
+
+\addplot table [x=Cities, y=Bruteforce, col sep=comma] {csv/example.csv};
+\addlegendentry{Bruteforce};
+\addplot table [x=Cities, y=Branch and bound, col sep=comma] {csv/example.csv};
+\addlegendentry{Branch and bound};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\chapter{Wnioski}
+%{\let\clearpage\relax \chapter{Wnioski}}
+\begin{enumerate}
+\item ABC
+\item DEF
+\item GHI
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,77 @@
+% title page
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amscd}
+\usepackage[all,cmtip]{xy}
+\usepackage{bbm}
+\usepackage{eso-pic}
+
+% Date format -> YYYY-MM-DD
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+
+\newcommand\AtPageUpperMyleft[1]{\AtPageUpperLeft{%
+    \put(\LenToUnit{1cm},\LenToUnit{-0.8cm}){#1}%
+}}%
+
+\newcommand*{\mytitlepage}{\begingroup
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1.75pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+{\noindent\Huge\bfseries Raport \\}\\[2\baselineskip] % Title
+{\large \textbf{Temat:} \temat \ \ \ \ \textbf{Data:} \mydate \ \ \ \ 
+
+\textbf{Kurs:} \kurs \\[1\baselineskip]
+\ \ \textbf{Grupa:} \grupa }\\[1\baselineskip]
+{\large \textbf{Prowadzący:} \prowadzacy } \\[4\baselineskip] % Tagline or further description
+{\large \textsc{\autor \\ \indeks}}
+
+\AddToShipoutPictureBG*{%
+\AtPageUpperMyleft{\raisebox{-\height}{%
+    \includegraphics[width=2.5cm]{img/logo.png}
+}}}
+
+
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+{\noindent Politechnika Wrocławska \\ Wydział Elektroniki }\\[\baselineskip] % Publisher and logo
+}}
+\endgroup}
+\pagestyle{empty} % Removes page numbers
+\makeatletter % Need for anything that contains an @ command 
+\renewcommand{\maketitle} % Redefine maketitle to conserve space
+{ \begingroup \vskip 10pt \begin{center} \Huge {\bf \@title}
+\vskip 10pt \large \@author \hskip 20pt \@date \end{center}
+\vskip 10pt \endgroup \setcounter{footnote}{0} }
+\makeatother % End of region containing @ commands
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\newcount\colveccount
+\newcommand*\colvec[1]{
+\global\colveccount#1
+\begin{pmatrix}
+\colvecnext
+}
+\def\colvecnext#1{
+#1
+\global\advance\colveccount-1
+\ifnum\colveccount>0
+\\
+\expandafter\colvecnext
+\else
+\end{pmatrix}
+\fi
+}
+\usepackage{cancel}
+\newenvironment{solution}{%\small%
+\begin{trivlist} \item \textit{Solution}. }{%
+\hspace*{\fill} $\blacksquare$\end{trivlist}}
+\pagestyle{myheadings}
+\thispagestyle{empty} 

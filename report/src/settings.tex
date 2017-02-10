@@ -1,0 +1,125 @@
+\documentclass[11pt,a4paper,twoside,notitlepage,hidelinks]{extreport}
+
+\linespread{1.0}
+\usepackage{tikz}
+\usepackage{siunitx}	
+\usepackage{xcolor}
+\usepackage{minitoc}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{listings}	
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{mathtools} 	
+\usepackage{csvsimple}			
+\usepackage{standalone}
+\setcounter{tocdepth}{1}
+\usepackage{pgfplotstable}
+\usepackage{blindtext, color}
+\usepackage[yyyymmdd]{datetime}
+\usepackage[explicit]{titlesec}
+\usepackage[thinlines]{easytable}
+\usepackage[dotinlabels]{titletoc}
+    
+% polish language
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+
+% margins
+\usepackage{geometry}
+ \geometry{
+% a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ right=30mm,
+ top=10mm,
+ bottom=20mm,
+ }
+ 
+ \sisetup{
+  round-mode          = places, % Rounds numbers
+  round-precision     = 2, % to 2 places
+}
+
+
+
+% chapter tiltes formatting
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\bfseries\LARGE}
+  {\renewcommand{\thechapter}{\Roman{chapter}}\hspace*{0.5em}\colorbox{black}{%
+    \parbox[c][1.2cm][c]{1.65cm}{%
+      \centering\textcolor{white}  {\Huge\thechapter}}}}
+  {-1ex}
+  {\titlerule\vspace{.7ex}\filleft\MakeUppercase{#1}}
+  [\vspace{.2ex}\titlerule]
+% chapter tiltes spacing
+\titlespacing*{\chapter}{0pt}{40pt}{40pt}
+
+% section tiltes formatting
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\MySecSquare\ \thesection}{1em}{#1}
+\titleformat{name=\section,numberless}
+  {\normalfont\Large\bfseries}{\MySecSquare}{1em}{#1}
+
+% formatting for chapter entries in ToC  
+\titlecontents{chapter}
+  [1.5em]{}
+  {\sffamily\bfseries\contentslabel{1.5em}}
+  {\hspace*{-1.5em}}
+  {\hfill\sffamily\bfseries\contentspage}
+% formatting for section entries in ToC  
+\titlecontents{section}
+  [3.8em]{}
+  {\sffamily\contentslabel{2.3em}}
+  {\hspace*{-2.3em}}
+  {\titlerule*[1pc]{.}\sffamily\contentspage}
+
+% Square to be used in itemize
+\newcommand\MySquare{
+    \leavevmode\hbox to 1.2ex{\hss\vrule height .10ex width .8ex depth -.2ex\hss}}
+% Square to be used in section titles
+\newcommand\MySecSquare{
+    \leavevmode\hbox to 1.2ex{\hss\vrule height 2.0ex width 0.6em depth -.2ex\hss}}
+
+% First level of itemize uses a square
+\renewcommand\labelitemi{\MySquare}
+
+\lstset{
+numbers=left, 
+numberstyle=\small, 
+numbersep=6pt, 
+frame = single, 
+language=Python, 
+breaklines=true,
+basicstyle=\footnotesize,		
+framexleftmargin=20pt}			
+\renewcommand{\dateseparator}{-}
+%\usepackage[left=4.0cm,top=0.5cm,right=4.0cm]{geometry}
+
+\newcommand{\hsp}{\hspace{20pt}}
+\definecolor{gray75}{gray}{0.75}
+
+% scale, name of file, description
+\newcommand{\image}[3]{
+	\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=#1]{img/#2}
+  		\caption{#3}
+  		\label{fig}
+	\end{center}
+	\end{figure}
+}
+
+\newcommand{\code}[1]{
+	\lstinputlisting{src/#1}
+}
+
+\newcommand{\csv}[1]{
+	\begin{center}
+	\csvautotabular{csv/#1}
+	\end{center}
+}
