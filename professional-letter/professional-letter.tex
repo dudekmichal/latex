@@ -1,0 +1,109 @@
+\documentclass[11pt,a4paper]{letter}
+
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+
+\makeatletter
+\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
+
+\textwidth 6.75in
+\textheight 9.25in
+\oddsidemargin -.25in
+\evensidemargin -.25in
+\topmargin -1in
+\longindentation 0.50\textwidth
+\parindent 0.4in
+
+\def\Who{Michał Dudek} % Name
+\def\What{inż. } % Title/degree
+\def\Where{Department of Electronics} % Department
+\def\Address{55-140} % Zip code
+\def\CityZip{Korzeńsko, ul. XYZ 13} % City, street
+\def\Email{E-mail: michal.dudek1995@gmail.com} % E-mail
+\def\TEL{Phone: (000) 111-1111} % Phone number
+\def\URL{URL: http://www.johnsmith.com} % URL
+
+
+\address{
+\includegraphics[width=1in]{logo.jpg}
+\hspace{5.4in}
+\vskip -1.35in~\\
+\Large\hspace{1.5in}POLITECHNIKA \hfill ~\\[0.05in]
+\hspace{1.5in}WROCŁAWSKA \hfill \normalsize
+\makebox[0ex][r]{\bf \What \Who}\hspace{0.08in}
+~\\[-0.11in]
+\hspace{1.5in}\vhrulefill{1pt} \\
+\hspace{\fill}\parbox[t]{2.85in}{
+\footnotesize
+\Who \\ \em
+\Where\\
+\Address\\
+\CityZip\\
+\TEL\\
+\Email\\
+\URL
+}
+\hspace{-1.4in}
+\vspace{-1in}
+}
+
+\def\opening#1{\thispagestyle{empty}
+{\centering\fromaddress \vspace{0.6in} \\
+\hspace*{\longindentation}\today\hspace*{\fill}\par}
+{\raggedright \toname \\ \toaddress \par}
+\vspace{0.4in}
+\noindent #1
+}
+
+%----------------------------------------------------------------------------------------
+%	Signature
+%----------------------------------------------------------------------------------------
+
+\signature{\What \Who}
+
+\long\def\closing#1{
+\vspace{0.1in}
+\noindent
+\hspace*{\longindentation}
+\parbox{\indentedwidth}{\raggedright
+#1
+\vskip 0.55in
+\fromsig}}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	Receiver
+%----------------------------------------------------------------------------------------
+
+\begin{letter}
+{Prof. Jones\\
+Mathematics Search Committee\\
+Department of Mathematics\\
+University of California\\
+Berkeley, California 12345\\
+}
+
+%----------------------------------------------------------------------------------------
+%	Content
+%----------------------------------------------------------------------------------------
+
+\opening{Dear Sir or Madam,}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a nisi diam. Morbi consequat facilisis mi, sit amet laoreet velit aliquet quis. Sed a nisi vel augue ultricies blandit. Phasellus et congue dolor, at cursus dui. Integer quis faucibus metus. Vestibulum lobortis ligula in lectus pretium, in placerat lacus iaculis. Mauris nibh erat, condimentum at tortor at, sagittis viverra tortor. Vivamus posuere fermentum eros, rhoncus sagittis nisi imperdiet ac.
+
+Pellentesque hendrerit neque quis quam fringilla, vitae vulputate quam bibendum. Fusce in hendrerit mauris. Mauris pretium libero eget convallis mattis. Vivamus nec nisi imperdiet, lacinia diam id, facilisis nulla. Vivamus eleifend augue ut libero tincidunt commodo. Vivamus sodales in lacus vitae dictum. Nam et semper felis. Integer scelerisque accumsan condimentum. Aliquam laoreet erat vitae ornare consequat. Donec enim lacus, rutrum ut dui a, pretium mattis dui. Vivamus vulputate arcu nec congue convallis. Suspendisse faucibus turpis ac neque gravida, vel aliquet mauris tristique. In auctor fringilla nunc, sit amet tristique diam semper ac. Cras egestas nisi eu turpis facilisis, ac scelerisque elit lacinia. Sed eget adipiscing enim. Ut pulvinar ultrices purus ac eleifend.
+
+Proin nunc erat, vestibulum quis tincidunt sit amet, cursus et libero. Aliquam erat volutpat. Sed vel malesuada velit. Vivamus risus arcu, facilisis non mauris sed, interdum varius tellus. Vivamus aliquam vel sapien quis ultricies. Mauris venenatis risus enim, in dapibus quam volutpat in. Vivamus iaculis sapien sit amet massa vehicula, tempus facilisis nulla adipiscing. Mauris ullamcorper pharetra libero, quis sodales dolor blandit et. Donec convallis risus id euismod pharetra. Suspendisse placerat laoreet imperdiet. Praesent malesuada fringilla urna, non sollicitudin erat. Nullam arcu neque, lobortis nec facilisis at, scelerisque ac erat. Nunc quis tincidunt lorem, vitae laoreet enim.
+
+\closing{Z wyrazami szacunku,}
+
+%----------------------------------------------------------------------------------------
+
+\end{letter}
+\end{document}
